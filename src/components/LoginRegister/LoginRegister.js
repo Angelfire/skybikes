@@ -7,25 +7,35 @@ import './LoginRegister.scss';
 export const LoginRegister = () => {
   const registerForm = `
     <form name="register-form">
-      <input type="text" name="firstname" placeholder="Enter your first name">
-      <input type="text" name="lastname" placeholder="Enter your last name">
-      <input type="text" name="phonenumber" placeholder="Enter your phone number">
-      <input type="text" name"email" placeholder="Enter your email">
-      <input type="submit" value="Register">
+      <div class="form-group">
+        <input class="form-control" type="text" name="firstname" placeholder="Enter your first name">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" name="lastname" placeholder="Enter your last name">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" name="phonenumber" placeholder="Enter your phone number">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" name"email" placeholder="Enter your email">
+      </div>
+      <input type="submit" class="btn btn-primary" value="Register">
     </form>
   `;
 
   const loginForm = `
     <form name="login-form">
-      <input type="text" name"email" placeholder="Enter your email">
-      <input type="submit" value="Login">
+      <div class="form-group">
+        <input class="form-control" type="text" name"email" placeholder="Enter your email">
+      </div>
+      <input type="submit" class="btn btn-primary" value="Login">
     </form>
   `;
 
   return `
     <div class="login-component row">
-      <div class="md-6">${registerForm}</div>
-      <div class="md-6">${loginForm}</div>
+      <div class="col-md-6">${registerForm}</div>
+      <div class="col-md-6">${loginForm}</div>
     </div>
   `;
 }
