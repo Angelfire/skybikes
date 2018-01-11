@@ -1,10 +1,11 @@
 import {
   createUser,
-  startNewSession
+  initSession
 } from './helpers';
 import './LoginRegister.scss';
 
 export const LoginRegister = () => {
+
   const registerForm = `
     <form name="register-form">
       <div class="form-group">
@@ -28,7 +29,7 @@ export const LoginRegister = () => {
       <div class="form-group">
         <input class="form-control" type="text" name"email" placeholder="Enter your email">
       </div>
-      <input type="submit" class="btn btn-primary" value="Login">
+      <input type="submit" class="btn btn-primary" value="Login" onclick="${initSession}">
     </form>
   `;
 

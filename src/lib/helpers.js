@@ -1,5 +1,5 @@
 /*
-  localstorage/sessionstorage methods
+* localstorage/sessionstorage methods
 */
 
 export const getItem = (i) => window.localStorage.getItem(i) || false;
@@ -14,7 +14,14 @@ export const setSession = (s, v) => window.sessionStorage.setItem(s, v);
 
 export const delSession = (s) => window.sessionStorage.removeItem(s);
 
+/*
+* Check if user exists
+*/ 
+export const isMember = (email, users) => users.find((u) => u.mail === mail);
 
-
+/*
+* Remove malicious data from user input
+*/
+export const sanitize = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
 
 export const pageReload = () => window.location.reload();
