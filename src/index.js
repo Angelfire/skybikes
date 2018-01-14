@@ -14,5 +14,5 @@ if (getSession('sb-session')) {
     document.getElementsById('admin-sb').innerHTML += Admin();
   }
 } else {
-  document.getElementById('login-sb').innerHTML += LoginRegister();
+  document.getElementById('login-sb').appendChild(LoginRegister());
 }

@@ -1,42 +1,61 @@
 import {
-  createUser,
-  initSession
+  getItem
+} from '../../lib/helpers';
+import {
+  createDivInput,
+  createBtn
 } from './helpers';
 import './LoginRegister.scss';
 
 export const LoginRegister = () => {
+  const globalDiv = document.createElement('div');
+  globalDiv.setAttribute('class', 'login-component row');
 
-  const registerForm = `
-    <form name="register-form">
-      <div class="form-group">
-        <input class="form-control" type="text" name="firstname" placeholder="Enter your first name">
-      </div>
-      <div class="form-group">
-        <input class="form-control" type="text" name="lastname" placeholder="Enter your last name">
-      </div>
-      <div class="form-group">
-        <input class="form-control" type="text" name="phonenumber" placeholder="Enter your phone number">
-      </div>
-      <div class="form-group">
-        <input class="form-control" type="text" name"email" placeholder="Enter your email">
-      </div>
-      <input type="submit" class="btn btn-primary" value="Register">
-    </form>
-  `;
+  /**
+   * Returns the complete DOM for Register Form
+   * @return {object} DOM element for a form
+   */
+  const renderRegisterForm = () => {
+    const rDiv = document.createElement('div');
+    rDiv.setAttribute('class', 'col-md-6');
+    const rForm = document.createElement('form');
+    rForm.name = 'register-form';
+    const submitRegister = createBtn('submit', 'register', 'Register');
+    submitRegister.setAttribute('class', 'btn btn-primary');
 
-  const loginForm = `
-    <form name="login-form">
-      <div class="form-group">
-        <input class="form-control" type="text" name"email" placeholder="Enter your email">
-      </div>
-      <input type="submit" class="btn btn-primary" value="Login" onclick="${initSession}">
-    </form>
-  `;
+    rForm.appendChild(createDivInput('text', 'rfirstname', 'Enter your first name'));
+    rForm.appendChild(createDivInput('text', 'rlastname', 'Enter your last name'));
+    rForm.appendChild(createDivInput('text', 'rphonenumber', 'Enter your phone number'));
+    rForm.appendChild(createDivInput('text', 'remail', 'Enter your email'));
+    rForm.appendChild(submitRegister);
 
-  return `
-    <div class="login-component row">
-      <div class="col-md-6">${registerForm}</div>
-      <div class="col-md-6">${loginForm}</div>
-    </div>
-  `;
+    rDiv.appendChild(rForm);
+
+    return rDiv;
+  };
+
+  /**
+   * Returns the complete DOM for Login Form
+   * @return {object} DOM element for a form
+   */
+  const renderLoginForm = () => {
+    const lDiv = document.createElement('div');
+    lDiv.setAttribute('class', 'col-md-6');
+    const lForm = document.createElement('form');
+    lForm.name = 'login-form';
+    const submitLogin = createBtn('submit', 'login', 'Login');
+    submitLogin.setAttribute('class', 'btn btn-primary');
+
+    lForm.appendChild(createDivInput('text', 'lemail', 'Enter your email'));
+    lForm.appendChild(submitLogin); 
+
+    lDiv.appendChild(lForm);
+
+    return lDiv;
+  };
+
+  globalDiv.appendChild(renderRegisterForm());
+  globalDiv.appendChild(renderLoginForm());
+
+  return globalDiv;
 }
