@@ -1,19 +1,18 @@
 import {
   getItem,
+  pageReload,
   setSession
 } from '../../lib/helpers';
 import {
   createDivInput,
   createBtn,
   isUser,
-  pageReload,
   sanitizeField
 } from './helpers';
-import './LoginRegister.scss';
 
 const LoginRegister = () => {
-  const globalDiv = document.createElement('div');
-  globalDiv.setAttribute('class', 'login-component row');
+  const divLoginRegisterView = document.createElement('div');
+  divLoginRegisterView.setAttribute('class', 'login-component row');
 
   /**
    * Create temporary session and reload page
@@ -95,10 +94,10 @@ const LoginRegister = () => {
     return lDiv;
   };
 
-  globalDiv.appendChild(renderRegisterForm());
-  globalDiv.appendChild(renderLoginForm());
+  divLoginRegisterView.appendChild(renderRegisterForm());
+  divLoginRegisterView.appendChild(renderLoginForm());
 
-  return globalDiv;
+  return divLoginRegisterView;
 }
 
 export default LoginRegister;

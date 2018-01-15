@@ -53,9 +53,4 @@ export const isUser = (mail, users) => users.find((u) => u.mail === mail);
  * Remove malicious data from user input
  * @param {*} s 
  */
-export const sanitizeField = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
-
-/**
- * Reload the page
- */
-export const pageReload = () => window.location.reload();
+export const sanitizeField = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');

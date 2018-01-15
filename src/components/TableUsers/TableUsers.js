@@ -41,7 +41,7 @@ export const TableUsers = () => {
           <th scope="col">Remaining Time</th>
           <th scope="col">Banned Status</th>
         </thead>
-        <tbody id="body-users">
+        <tbody>
           ${renderBodyTable()}
         </tbody>
       </table>

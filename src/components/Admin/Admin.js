@@ -1,12 +1,14 @@
 import { getItem } from '../../lib/helpers';
 import { TableUsers } from '../TableUsers/TableUsers'
+import { BikeStation } from '../BikeStations/BikeStations';
 
 const Admin = () => {
-  const divTableUser = document.createElement('div');
+  const divAdminView = document.createElement('div');
 
-  divTableUser.appendChild(TableUsers());
+  divAdminView.appendChild(BikeStation());
+  divAdminView.appendChild(TableUsers());
 
-  return divTableUser;
+  return divAdminView;
 }
 
 export default Admin;

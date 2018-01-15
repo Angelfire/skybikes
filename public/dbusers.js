@@ -8,6 +8,14 @@ export const dbUsers = [
     "type": "admin"
   },
   {
+    "firstName": "bane",
+    "lastName": "doe",
+    "mail": "sbworker@sb.co",
+    "phone": "4567890",
+    "banned": false,
+    "type": "staff"
+  },
+  {
     "firstName": "john",
     "lastName": "doe",
     "id": "001",
@@ -21,7 +29,7 @@ export const dbUsers = [
     "lastName": "doe",
     "id": "002",
     "mail": "janedoe@citizens.co",
-    "phone": "2345678",
+    "phone": "3456789",
     "banned": true,
     "type": "user"
   }
