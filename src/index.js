@@ -1,5 +1,5 @@
 import LoginRegister from '../src/components/LoginRegister/LoginRegister';
-import { Admin } from '../src/components/Admin/Admin';
+import Admin from '../src/components/Admin/Admin';
 import { dbUsers } from '../public/dbusers';
 import { getItem, getSession, setItem } from './lib/helpers';
 import './index.scss';

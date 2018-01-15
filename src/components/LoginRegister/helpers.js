@@ -7,17 +7,6 @@ import {
 } from '../../lib/helpers';
 
 /**
- * Create/add new user to users in localstorage
- * @param {*} user 
- * @param {*} users 
- */
-export const createUser = (user, users) => {
-  const newUser = Object.assign(users, user);
-  setItem('sb-users', JSON.stringify(newUser));
-  startSession(user);
-}
-
-/**
  * Creates a new input inside a div
  * @param {string} type 
  * @param {string} name 

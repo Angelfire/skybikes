@@ -1,10 +1,12 @@
 import { getItem } from '../../lib/helpers';
-import TableUsers from '../TableUsers/TableUsers'
+import { TableUsers } from '../TableUsers/TableUsers'
 
-export const Admin = () => {
+const Admin = () => {
   const divTableUser = document.createElement('div');
 
-  divTableUser.appendChild(TableUsers);
+  divTableUser.appendChild(TableUsers());
 
   return divTableUser;
 }
+
+export default Admin;

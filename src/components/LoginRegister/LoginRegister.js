@@ -25,6 +25,17 @@ const LoginRegister = () => {
   }
 
   /**
+   * Create/add new user to users in localstorage
+   * @param {*} user 
+   * @param {*} users 
+   */
+  const createUser = (user, users) => {
+    const newUser = Object.assign(users, user);
+    setItem('sb-users', JSON.stringify(newUser));
+    startSession(user);
+  }
+
+  /**
    * 
    * @param {*} e 
    */
