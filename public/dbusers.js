@@ -4,7 +4,8 @@ export const dbUsers = [
     "lastName": "admin",
     "mail": "sysadmin@sb.co",
     "phone": "1234567",
-    "banned": false
+    "banned": false,
+    "type": "admin"
   },
   {
     "firstName": "john",
@@ -12,7 +13,8 @@ export const dbUsers = [
     "id": "001",
     "mail": "johndoe@citizens.co",
     "phone": "2345678",
-    "banned": false
+    "banned": false,
+    "type": "user"
   },
   {
     "firstName": "jane",
@@ -20,6 +22,7 @@ export const dbUsers = [
     "id": "002",
     "mail": "janedoe@citizens.co",
     "phone": "2345678",
-    "banned": true
+    "banned": true,
+    "type": "user"
   }
 ];

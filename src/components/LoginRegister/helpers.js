@@ -7,15 +7,6 @@ import {
 } from '../../lib/helpers';
 
 /**
- * Create temporary session and reload page
- * @param {*} u 
- */
-const startSession = u => {
-  setSession('sb-session', JSON.stringify(u));
-  pageReload();
-}
-
-/**
  * Create/add new user to users in localstorage
  * @param {*} user 
  * @param {*} users 
@@ -61,3 +52,21 @@ export const createBtn = (type, name, value) => {
 
   return btn;
 }
+
+/**
+ * 
+ * @param {*} mail 
+ * @param {*} users 
+ */ 
+export const isUser = (mail, users) => users.find((u) => u.mail === mail);
+
+/**
+ * Remove malicious data from user input
+ * @param {*} s 
+ */
+export const sanitizeField = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
+
+/**
+ * Reload the page
+ */
+export const pageReload = () => window.location.reload();

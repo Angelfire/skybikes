@@ -1,4 +1,4 @@
-import { LoginRegister } from '../src/components/LoginRegister/LoginRegister';
+import LoginRegister from '../src/components/LoginRegister/LoginRegister';
 import { Admin } from '../src/components/Admin/Admin';
 import { dbUsers } from '../public/dbusers';
 import { getItem, getSession, setItem } from './lib/helpers';
@@ -11,7 +11,7 @@ getItem('sb-users') ? getItem('sb-users') : setItem('sb-users', JSON.stringify(d
 
 if (getSession('sb-session')) {
   if (JSON.parse(getSession('sb-session')).mail === 'sysadmin@sb.co') {
-    document.getElementsById('admin-sb').innerHTML += Admin();
+    document.getElementById('admin-sb').appendChild(Admin());
   }
 } else {
   document.getElementById('login-sb').appendChild(LoginRegister());

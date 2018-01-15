@@ -1,15 +1,44 @@
 import {
-  getItem
+  getItem,
+  setSession
 } from '../../lib/helpers';
 import {
   createDivInput,
-  createBtn
+  createBtn,
+  isUser,
+  pageReload,
+  sanitizeField
 } from './helpers';
 import './LoginRegister.scss';
 
-export const LoginRegister = () => {
+const LoginRegister = () => {
   const globalDiv = document.createElement('div');
   globalDiv.setAttribute('class', 'login-component row');
+
+  /**
+   * Create temporary session and reload page
+   * @param {*} u 
+   */
+  const startSession = u => {
+    setSession('sb-session', JSON.stringify(u));
+    pageReload();
+  }
+
+  /**
+   * 
+   * @param {*} e 
+   */
+  const loginSubmit = (e) => {
+    e.preventDefault();
+
+    const users = JSON.parse(getItem('sb-users'));
+    const form = document.forms['login-form'];
+    const user = {
+      'mail': sanitizeField(form['lemail'].value)
+    };
+    
+    startSession(isUser(user.mail, users));
+  }
 
   /**
    * Returns the complete DOM for Register Form
@@ -45,6 +74,7 @@ export const LoginRegister = () => {
     lForm.name = 'login-form';
     const submitLogin = createBtn('submit', 'login', 'Login');
     submitLogin.setAttribute('class', 'btn btn-primary');
+    submitLogin.addEventListener('click', loginSubmit, false);
 
     lForm.appendChild(createDivInput('text', 'lemail', 'Enter your email'));
     lForm.appendChild(submitLogin); 
@@ -59,3 +89,5 @@ export const LoginRegister = () => {
 
   return globalDiv;
 }
+
+export default LoginRegister;

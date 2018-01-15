@@ -1,7 +1,10 @@
 import { getItem } from '../../lib/helpers';
+import TableUsers from '../TableUsers/TableUsers'
 
 export const Admin = () => {
-  const users = JSON.parse(getItem('sb-users'));
+  const divTableUser = document.createElement('div');
 
-  console.log(users);
+  divTableUser.appendChild(TableUsers);
+
+  return divTableUser;
 }
