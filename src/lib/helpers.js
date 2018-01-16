@@ -79,5 +79,5 @@ export const startSession = u => {
  * Remove malicious data from user input
  * @param {*} s 
  */
-export const sanitizeField = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+export const sanitizeField = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
   

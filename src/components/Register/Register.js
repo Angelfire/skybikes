@@ -17,8 +17,8 @@ export const Register = () => {
    * @param {*} users 
    */
   const saveUser = (user, users) => {
-    const newUser = Object.assign(users, user);
-    setItem('sb-users', JSON.stringify(newUser));
+    users.push(user);
+    setItem('sb-users', JSON.stringify(users));
     startSession(user);
   }
 
@@ -32,10 +32,11 @@ export const Register = () => {
     const users = JSON.parse(getItem('sb-users'));
     const form = document.forms['register-form'];
     const user = {
-      'firstName': sanitizeField(form['rfirstname']),
-      'lastName': sanitizeField(form['rlastname']),
-      'mail': sanitizeField(form['rphonenumber']),
-      'phone': sanitizeField(form['remail'])
+      'firstName': sanitizeField(form['rfirstname'].value),
+      'lastName': sanitizeField(form['rlastname'].value),
+      'mail': sanitizeField(form['rphonenumber'].value),
+      'phone': sanitizeField(form['remail'].value),
+      'type': 'user'
     };
 
     saveUser(user, users);
@@ -55,6 +56,7 @@ export const Register = () => {
     rForm.appendChild(rlegend);
     const submitRegister = createBtn('submit', 'register', 'Register');
     submitRegister.setAttribute('class', 'btn btn-primary');
+    submitRegister.addEventListener('click', registerUser, false);
 
     rForm.appendChild(createDivInput('text', 'rfirstname', 'Enter your first name'));
     rForm.appendChild(createDivInput('text', 'rlastname', 'Enter your last name'));
