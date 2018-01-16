@@ -9,9 +9,9 @@ import {
   getSession,
   logout,
   pageReload,
-  setItem
+  setItem,
+  updateInstruction
 } from '../../lib/helpers';
-import { bikeStations } from './stations.js';
 import './bikestations.scss';
 
 export const BikeStation = () => {
@@ -19,6 +19,7 @@ export const BikeStation = () => {
   divBikeStationView.setAttribute('class', 'stations');
 
   const users = JSON.parse(getItem('sb-users'));
+  const bikeStations = JSON.parse(getItem('sb-stations'));
   const session = JSON.parse(getSession('sb-session'));
 
   /**
@@ -70,6 +71,7 @@ export const BikeStation = () => {
   const banMember = (i, session) => {
     // Stop countdown, update UI
     clearInterval(i);
+    updateInstruction('Your remaining time is over.');
   
     // Return the bike
     automaticBikeReturn(session.bike);
@@ -178,6 +180,11 @@ export const BikeStation = () => {
     const divStationTitle = document.createElement('h2');
     divStationTitle.innerHTML = 'Bike Stations';
     divStationView.appendChild(divStationTitle);
+
+    const instruction = document.createElement('p');
+    instruction.setAttribute('id', 'instructions');
+    instruction.innerHTML = 'You can rent a bike by clicking on it.'
+    divStationView.appendChild(instruction);
 
     bikeStations.map((e, i) => {
       // Single station element

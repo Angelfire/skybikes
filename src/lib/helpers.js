@@ -67,3 +67,11 @@ export const startSession = u => {
     pageReload();
   }
   
+  /**
+   * Update instructions for user
+   * @param {string} i 
+   */
+  export const updateInstruction = i => {
+    document.getElementById('instructions').innerHTML = i;
+  }
+  

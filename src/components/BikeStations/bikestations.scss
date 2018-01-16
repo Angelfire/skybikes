@@ -13,3 +13,34 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.bike,
+.parking {
+  text-align: center;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.bike {
+  color: #000;
+  font-weight: bold;
+  &:hover {
+    color: #fff;
+  }
+  &:before {
+    content: "Bike";
+  }
+}
+
+.parking {
+  color: #F44336;
+  pointer-events: none;
+  &:hover {
+    color: #000;
+  }
+  &:before {
+    content: "Free slot";
+  }
+}
