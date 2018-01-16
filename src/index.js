@@ -1,5 +1,6 @@
-import { LoginRegister } from '../src/components/LoginRegister/LoginRegister';
-import { Admin } from '../src/components/Admin/Admin';
+import { LoginRegister } from './components/LoginRegister/LoginRegister';
+import { Admin } from './components/Admin/Admin';
+import { Logout } from './components/Logout/Logout';
 import { dbUsers } from '../public/dbusers';
 import { getItem, getSession, setItem } from './lib/helpers';
 import './index.scss';
@@ -10,9 +11,10 @@ import './index.scss';
 getItem('sb-users') ? getItem('sb-users') : setItem('sb-users', JSON.stringify(dbUsers));
 
 if (getSession('sb-session')) {
+  document.getElementById('header').appendChild(Logout());
   if (JSON.parse(getSession('sb-session')).mail === 'sysadmin@sb.co') {
-    document.getElementsById('admin-sb').innerHTML += Admin();
+    document.getElementById('admin-sb').appendChild(Admin());
   }
 } else {
-  document.getElementById('login-sb').innerHTML += LoginRegister();
+  document.getElementById('login-sb').appendChild(LoginRegister());
 }
