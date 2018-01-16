@@ -13,7 +13,7 @@ export const dbUsers = [
     "mail": "sbworker@sb.co",
     "phone": "4567890",
     "banned": false,
-    "type": "staff"
+    "type": "worker"
   },
   {
     "firstName": "john",

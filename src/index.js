@@ -1,15 +1,16 @@
 import { LoginRegister } from './components/LoginRegister/LoginRegister';
 import { Admin } from './components/Admin/Admin';
 import { Logout } from './components/Logout/Logout';
+import { BikeStation } from './components/BikeStations/BikeStations';
+import { Citizen } from './containers/Citizen/Citizen';
+import { Worker } from './containers/Worker/Worker';
 import { dbUsers } from '../public/dbusers';
 import { bikeStations } from '../public/bikestations';
 import { getItem, getSession, setItem } from './lib/helpers';
 import './index.scss';
-import { BikeStation } from './components/BikeStations/BikeStations';
-import { bikeStations } from '../public/bikestations';
 
 /**
- * 
+ * Creates an inital database for bike stations
  */
 getItem('sb-stations') ? getItem('sb-stations') : setItem('sb-stations', JSON.stringify(bikeStations));
 
@@ -23,6 +24,13 @@ if (getSession('sb-session')) {
   if (JSON.parse(getSession('sb-session')).mail === 'sysadmin@sb.co') {
     document.getElementById('admin-sb').appendChild(Admin());
   }
+  else if (JSON.parse(getSession('sb-session')).type === 'user') {
+    document.getElementById('citizen-sb').appendChild(Citizen());
+  }
+  else if (JSON.parse(getSession('sb-session')).type === 'worker') {
+    document.getElementById('worker-sb').appendChild(Worker());
+  }
+  
 } else {
   document.getElementById('login-sb').appendChild(LoginRegister());
 }

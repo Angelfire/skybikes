@@ -19,7 +19,7 @@ export const Login = () => {
    * 
    * @param {*} e 
    */
-  const loginSubmit = (e) => {
+  const loginSubmit = e => {
     e.preventDefault();
 
     const users = JSON.parse(getItem('sb-users'));

@@ -8,8 +8,8 @@ import {
 } from '../../lib/helpers';
 
 export const Register = () => {
-  const rDiv = document.createElement('div');
-  rDiv.setAttribute('class', 'col-md-6');
+  const divRegistewView = document.createElement('div');
+  divRegistewView.setAttribute('class', 'col-md-6');
 
   /**
    * Create/add new user to users in localstorage
@@ -26,7 +26,7 @@ export const Register = () => {
    * 
    * @param {*} e 
    */
-  const registerUser = (e) => {
+  const registerUser = e => {
     e.preventDefault();
 
     const users = JSON.parse(getItem('sb-users'));
@@ -60,14 +60,14 @@ export const Register = () => {
 
     rForm.appendChild(createDivInput('text', 'rfirstname', 'Enter your first name'));
     rForm.appendChild(createDivInput('text', 'rlastname', 'Enter your last name'));
-    rForm.appendChild(createDivInput('text', 'rphonenumber', 'Enter your phone number'));
+    rForm.appendChild(createDivInput('text', 'rphonenumber', 'Enter your emergency phone number'));
     rForm.appendChild(createDivInput('text', 'remail', 'Enter your email'));
     rForm.appendChild(submitRegister);
 
     return rForm;
   }
 
-  rDiv.appendChild(renderRegisterForm());
+  divRegistewView.appendChild(renderRegisterForm());
 
-  return rDiv;
+  return divRegistewView;
 }
