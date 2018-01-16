@@ -2,7 +2,7 @@ import { getItem } from '../../lib/helpers';
 import { TableUsers } from '../TableUsers/TableUsers'
 import { BikeStation } from '../BikeStations/BikeStations';
 
-const Admin = () => {
+export const Admin = () => {
   const divAdminView = document.createElement('div');
 
   divAdminView.appendChild(BikeStation());
@@ -10,5 +10,3 @@ const Admin = () => {
 
   return divAdminView;
 }
-
-export default Admin;
