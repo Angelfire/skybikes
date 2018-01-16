@@ -2,13 +2,15 @@ import {
   createBtn,
   createDivInput,
   getItem,
+  isUser,
   pageReload,
   sanitizeField,
   setSession,
-  startSession
+  startSession,
+  updateInstruction
 } from '../../lib/helpers';
 import {
-  isUser
+  validateLogin
 } from './helpers';
 
 export const Login = () => {
@@ -28,7 +30,7 @@ export const Login = () => {
       'mail': sanitizeField(form['lemail'].value)
     };
     
-    startSession(isUser(user.mail, users));
+    validateLogin() ? updateInstruction(errors) : startNewSession(isUser(user.mail, users));
   }
 
     /**

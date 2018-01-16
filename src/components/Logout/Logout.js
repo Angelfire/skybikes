@@ -1,8 +1,6 @@
 import {
   createBtn,
-  delSession,
-  logout,
-  pageReload
+  logout
 } from '../../lib/helpers';
 
 export const Logout = () => {
