@@ -31,7 +31,7 @@ export const BikeStation = () => {
     fakeArray.push(session);
     const updatedUsers = users.map(user => fakeArray.find(o => o.mail === user.mail) || user);
 
-    setItem('sb-members', JSON.stringify(updatedUsers));
+    setItem('sb-users', JSON.stringify(updatedUsers));
   }
 
   /**
@@ -58,7 +58,7 @@ export const BikeStation = () => {
    * Create a `banned` key and set it to true before update the member session
    * @param {*} session 
    */
-  const markAsBanned = (session) => {
+  const markAsBanned = session => {
     session.banned = true;
     updateMemberSession(session);
   }
@@ -119,7 +119,6 @@ export const BikeStation = () => {
       delete session.bike;
       updateMemberSession(session);
   
-      // Update the statkl object in localStorage and reload page
       setItem('sb-stations', JSON.stringify(bikeStations));
       pageReload();
   

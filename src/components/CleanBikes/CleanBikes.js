@@ -12,7 +12,7 @@ export const CleanBikes = () => {
 
   const renderCleanBikes = () => {
     const btn = createBtn('button', 'cleanbike', 'Clean Bikes');
-    btn.setAttribute('class', 'btn btn-primary');
+    btn.setAttribute('class', 'btn btn-sb');
     btn.addEventListener('click', Clean, false);
 
     return btn;

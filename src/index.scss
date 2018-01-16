@@ -13,3 +13,13 @@ body {
 .bg-sb {
   background-color: #f44336;
 }
+
+.btn-sb {
+  background-color: #f44336;
+  border-color: #f44336;
+  color: #fff;
+  &:hover {
+    background-color: #f44336;
+    border-color: #f44336;
+  }
+}

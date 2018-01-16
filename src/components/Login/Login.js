@@ -42,7 +42,7 @@ export const Login = () => {
     lForm.appendChild(llegend);
     lForm.name = 'login-form';
     const submitLogin = createBtn('submit', 'login', 'Login');
-    submitLogin.setAttribute('class', 'btn btn-primary');
+    submitLogin.setAttribute('class', 'btn btn-sb');
     submitLogin.addEventListener('click', loginSubmit, false);
 
     lForm.appendChild(createDivInput('text', 'lemail', 'Enter your email'));

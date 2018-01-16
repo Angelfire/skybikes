@@ -34,8 +34,8 @@ export const Register = () => {
     const user = {
       'firstName': sanitizeField(form['rfirstname'].value),
       'lastName': sanitizeField(form['rlastname'].value),
-      'mail': sanitizeField(form['rphonenumber'].value),
-      'phone': sanitizeField(form['remail'].value),
+      'mail': sanitizeField(form['remail'].value),
+      'phone': sanitizeField(form['rphonenumber'].value),
       'type': 'user'
     };
 
@@ -55,7 +55,7 @@ export const Register = () => {
     rlegend.innerHTML = 'Register';
     rForm.appendChild(rlegend);
     const submitRegister = createBtn('submit', 'register', 'Register');
-    submitRegister.setAttribute('class', 'btn btn-primary');
+    submitRegister.setAttribute('class', 'btn btn-sb');
     submitRegister.addEventListener('click', registerUser, false);
 
     rForm.appendChild(createDivInput('text', 'rfirstname', 'Enter your first name'));
