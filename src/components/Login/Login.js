@@ -3,12 +3,12 @@ import {
   createDivInput,
   getItem,
   pageReload,
+  sanitizeField,
   setSession,
   startSession
 } from '../../lib/helpers';
 import {
-  isUser,
-  sanitizeField
+  isUser
 } from './helpers';
 
 export const Login = () => {

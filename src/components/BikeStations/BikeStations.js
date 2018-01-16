@@ -97,10 +97,10 @@ export const BikeStation = () => {
       if (remainingTime === 0) {
         banMember(i, session)
       } else {
-        remainingTime--
-        updateInstruction(`Return the bike before ${(remainingTime / 100) / 2} hours.`)
+        remainingTime--;
+        updateInstruction(`Return the bike before: <span>${(remainingTime / 100) / 2} hours.<span>`);
       }
-    }, 10)
+    }, 10);
   }
 
   /**

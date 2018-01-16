@@ -74,4 +74,10 @@ export const startSession = u => {
   export const updateInstruction = i => {
     document.getElementById('instructions').innerHTML = i;
   }
+
+  /**
+ * Remove malicious data from user input
+ * @param {*} s 
+ */
+export const sanitizeField = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
   

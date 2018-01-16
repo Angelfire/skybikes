@@ -3,7 +3,8 @@ import {
   createDivInput,
   setItem,
   startSession,
-  getItem
+  getItem,
+  sanitizeField
 } from '../../lib/helpers';
 
 export const Register = () => {
@@ -30,6 +31,14 @@ export const Register = () => {
 
     const users = JSON.parse(getItem('sb-users'));
     const form = document.forms['register-form'];
+    const user = {
+      'firstName': sanitizeField(form['rfirstname']),
+      'lastName': sanitizeField(form['rlastname']),
+      'mail': sanitizeField(form['rphonenumber']),
+      'phone': sanitizeField(form['remail'])
+    };
+
+    saveUser(user, users);
   }
 
   /**
