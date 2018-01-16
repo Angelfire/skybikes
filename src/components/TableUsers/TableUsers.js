@@ -3,7 +3,10 @@ import { getItem } from '../../lib/helpers';
 export const TableUsers = () => {
   const users = JSON.parse(getItem('sb-users'));
   const tableDiv = document.createElement('div');
+  const title = document.createElement('h2');
   tableDiv.setAttribute('class', 'table-users');
+  title.innerHTML = 'Admin Area - Users';
+  tableDiv.appendChild(title);
 
   /**
    * Returns the body table based on users

@@ -1,5 +1,5 @@
-import { TableUsers } from '../TableUsers/TableUsers'
-import { BikeStation } from '../BikeStations/BikeStations';
+import { TableUsers } from '../../components/TableUsers/TableUsers';
+import { BikeStation } from '../../components/BikeStations/BikeStations';
 
 export const Admin = () => {
   const divAdminView = document.createElement('div');

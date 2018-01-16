@@ -1,7 +1,6 @@
-import { LoginRegister } from './components/LoginRegister/LoginRegister';
-import { Admin } from './components/Admin/Admin';
 import { Logout } from './components/Logout/Logout';
-import { BikeStation } from './components/BikeStations/BikeStations';
+import { LoginRegister } from './containers/LoginRegister/LoginRegister';
+import { Admin } from './containers/Admin/Admin';
 import { Citizen } from './containers/Citizen/Citizen';
 import { Worker } from './containers/Worker/Worker';
 import { dbUsers } from '../public/dbusers';
@@ -30,7 +29,6 @@ if (getSession('sb-session')) {
   else if (JSON.parse(getSession('sb-session')).type === 'worker') {
     document.getElementById('worker-sb').appendChild(Worker());
   }
-  
 } else {
   document.getElementById('login-sb').appendChild(LoginRegister());
 }
