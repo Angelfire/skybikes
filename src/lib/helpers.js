@@ -1,7 +1,6 @@
 /*
 * localstorage/sessionstorage methods
 */
-
 export const getItem = (i) => window.localStorage.getItem(i) || false;
 export const setItem = (i, v) => window.localStorage.setItem(i, v);
 export const delItem = (i) => window.localStorage.removeItem(i);
@@ -87,7 +86,7 @@ export const updateErrors = (id, err) => {
  * Remove malicious data from user input
  * @param {*} s 
  */
-export const sanitizeField = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+export const sanitizeField = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;').replace(/>/g, '&&gt;').replace(/'/g, '&#39;');
 
 /**
  * 
