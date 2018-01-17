@@ -59,29 +59,29 @@ export const startSession = u => {
   pageReload();
 }
 
-  /**
-   * Kill the member session and "redirect" to login screen
-   */
-  export const logout = () => {
-    delSession('sb-session');
-    pageReload();
-  }
-  
-  /**
-   * Update instructions for user
-   * @param {string} i 
-   */
-  export const updateInstruction = i => {
-    document.getElementById('instructions').innerHTML = i;
-  }
+/**
+ * Kill the member session and "redirect" to login screen
+ */
+export const logout = () => {
+  delSession('sb-session');
+  pageReload();
+}
 
-  /**
-   * 
-   * @param {string} err 
-   */
-  export const updateErrors = (id, err) => {
-    document.getElementById(id).innerHTML = err;
-  }
+/**
+ * Update instructions for user
+ * @param {string} i 
+ */
+export const updateInstruction = i => {
+  document.getElementById('instructions').innerHTML = i;
+}
+
+/**
+ * 
+ * @param {string} err 
+ */
+export const updateErrors = (id, err) => {
+  document.getElementById(id).innerHTML = err;
+}
 
   /**
  * Remove malicious data from user input
