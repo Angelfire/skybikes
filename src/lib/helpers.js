@@ -76,6 +76,14 @@ export const startSession = u => {
   }
 
   /**
+   * 
+   * @param {string} err 
+   */
+  export const updateErrors = err => {
+    document.getElementById('errors').innerHTML = err;
+  }
+
+  /**
  * Remove malicious data from user input
  * @param {*} s 
  */

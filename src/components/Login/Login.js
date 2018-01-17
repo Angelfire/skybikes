@@ -3,15 +3,17 @@ import {
   createDivInput,
   getItem,
   isUser,
+  isValidEmail, 
   pageReload,
   sanitizeField,
   setSession,
   startSession,
-  updateInstruction
+  updateErrors
 } from '../../lib/helpers';
 import {
-  validateLogin
+  isBanned
 } from './helpers';
+import './login.scss';
 
 export const Login = () => {
   const divLoginView = document.createElement('div');
@@ -23,14 +25,20 @@ export const Login = () => {
    */
   const loginSubmit = e => {
     e.preventDefault();
-
+    
+    let errors = '';
     const users = JSON.parse(getItem('sb-users'));
     const form = document.forms['login-form'];
     const user = {
       'mail': sanitizeField(form['lemail'].value)
     };
-    
-    validateLogin() ? updateInstruction(errors) : startNewSession(isUser(user.mail, users));
+
+    errors += !isValidEmail(user.mail) ? 'Please enter a valid email address (e.g., johndoe@sb.co). <br>'
+      : !isUser(user.mail, users) ? 'You are not registered yet, please register. <br>'
+        : isBanned(user.mail, users) ? 'You are not allowed to access the service, please contact support@sb.co <br>'
+          : '';
+
+    errors ? updateErrors(errors) : startSession(isUser(user.mail, users)); 
   }
 
     /**
@@ -40,8 +48,11 @@ export const Login = () => {
   const renderLoginForm = () => {
     const lForm = document.createElement('form');
     const llegend = document.createElement('legend');
+    const errors = document.createElement('p');
+    errors.setAttribute('id', 'errors');
     llegend.innerHTML = 'Login';
     lForm.appendChild(llegend);
+    lForm.appendChild(errors);
     lForm.name = 'login-form';
     const submitLogin = createBtn('submit', 'login', 'Login');
     submitLogin.setAttribute('class', 'btn btn-sb');
