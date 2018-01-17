@@ -38,7 +38,7 @@ export const Login = () => {
         : isBanned(user.mail, users) ? 'You are not allowed to access the service, please contact support@sb.co <br>'
           : '';
 
-    errors ? updateErrors(errors) : startSession(isUser(user.mail, users)); 
+    errors ? updateErrors('errors-login', errors) : startSession(isUser(user.mail, users)); 
   }
 
     /**
@@ -49,7 +49,7 @@ export const Login = () => {
     const lForm = document.createElement('form');
     const llegend = document.createElement('legend');
     const errors = document.createElement('p');
-    errors.setAttribute('id', 'errors');
+    errors.setAttribute('id', 'errors-login');
     llegend.innerHTML = 'Login';
     lForm.appendChild(llegend);
     lForm.appendChild(errors);

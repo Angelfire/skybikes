@@ -79,8 +79,8 @@ export const startSession = u => {
    * 
    * @param {string} err 
    */
-  export const updateErrors = err => {
-    document.getElementById('errors').innerHTML = err;
+  export const updateErrors = (id, err) => {
+    document.getElementById(id).innerHTML = err;
   }
 
   /**

@@ -10,6 +10,7 @@ import {
   updateErrors
 } from '../../lib/helpers';
 import { isValidName, isValidPhone } from './helpers';
+import './register.scss';
 
 export const Register = () => {
   const divRegistewView = document.createElement('div');
@@ -51,7 +52,7 @@ export const Register = () => {
       : isUser(user.mail, users) ? 'You are already registered, please login. <br>'
         : ''
   
-    errors ? updateErrors(errors) : saveUser(user, users);
+    errors ? updateErrors('errors-register', errors) : saveUser(user, users);
   }
 
   /**
@@ -62,7 +63,7 @@ export const Register = () => {
     const rForm = document.createElement('form');
     const rlegend = document.createElement('legend');
     const errors = document.createElement('p');
-    errors.setAttribute('id', 'errors');
+    errors.setAttribute('id', 'errors-register');
     rForm.name = 'register-form';
     rlegend.innerHTML = 'Register';
     rForm.appendChild(rlegend);
