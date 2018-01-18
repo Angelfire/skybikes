@@ -1,5 +1,5 @@
 /**
- * 
+ * Check if an object is empty
  * @param {*} o 
  */
 export const isEmptyObject = o => (Object.keys(o).length === 0 && o.constructor === Object) === true;
