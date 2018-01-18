@@ -1,5 +1,3 @@
-import { isUser, isValidEmail } from '../../lib/helpers';
-
 /**
  * 
  * @param {*} mail 

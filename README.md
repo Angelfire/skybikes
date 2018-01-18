@@ -47,3 +47,8 @@ Run the project:
 ```
 npm start
 ```
+
+Run the tests:
+```
+npm test
+```
