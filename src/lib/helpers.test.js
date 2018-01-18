@@ -5,31 +5,48 @@ import {
   sanitizeField
 } from './helpers';
 
-test('sanitize fields', () => {
-  expect(sanitizeField("Andres")).toEqual("Andres");
-  expect(sanitizeField("<script>")).toBe("&lt;script&&gt;");
-  expect(sanitizeField("<script>alert('XSS alert dudes')</script>")).toBe("&lt;script&&gt;alert(&#39;XSS alert dudes&#39;)&lt;/script&&gt;");
+describe('sanitize fields', () => {
+  it('should sanitize fields if contains special chars', () => {
+    expect(sanitizeField("<script>")).toBe("&lt;script&&gt;");
+    expect(sanitizeField("<script>alert('XSS alert dudes')</script>")).toBe("&lt;script&&gt;alert(&#39;XSS alert dudes&#39;)&lt;/script&&gt;");
+  });
+
+  it('should return the same string if does not contains special chars', () => {
+    expect(sanitizeField("Andres")).toEqual("Andres");
+  });
 });
 
-test('valid emails', () => {
-  expect(isValidEmail("prettyandsimple@example.com")).toBe(true);
-  expect(isValidEmail("very.common@example.com")).toBe(true);
-  expect(isValidEmail("example-indeed@strange-example.com")).toBe(true);
-  expect(isValidEmail("#!$%&'*+-/=?^_`{}|~@example.org")).toBe(false);
-  expect(isValidEmail("example@localhost")).toBe(false);
-  expect(isValidEmail('"very.unusual.@.unusual.com"@example.com')).toBe(false);
+describe('validate emails', () => {
+  it('should return true if it is a valid email', () => {
+    expect(isValidEmail("prettyandsimple@example.com")).toBe(true);
+    expect(isValidEmail("very.common@example.com")).toBe(true);
+    expect(isValidEmail("example-indeed@strange-example.com")).toBe(true);
+  });
+
+  it('should return false if it is an invalid email', () => {
+    expect(isValidEmail("#!$%&'*+-/=?^_`{}|~@example.org")).toBe(false);
+    expect(isValidEmail("example@localhost")).toBe(false);
+    expect(isValidEmail('"very.unusual.@.unusual.com"@example.com')).toBe(false);
+  });
 });
 
-test('valid user', () => {
+describe('validate users', () => {
   const fakeusers = [{mail: "test1@sb.co"}, {mail: "test2@sb.co"}, {mail: "test3@sb.co"}];
 
-  expect(isUser("test1@sb.co", fakeusers)).toEqual({mail: "test1@sb.co"});
-  expect(isUser("test9@sb.co", fakeusers)).toEqual(undefined);
-  expect(isUser("123456789", fakeusers)).toEqual(undefined);
+  it('should return email if user exist', () =>{
+    expect(isUser("test1@sb.co", fakeusers)).toEqual({mail: "test1@sb.co"});
+  });
+
+  it('should return undefined if user does not exist', () => {
+    expect(isUser("test9@sb.co", fakeusers)).toEqual(undefined);
+    expect(isUser("123456789", fakeusers)).toEqual(undefined);
+  });
 });
 
-test('create button', () => {
+describe('create button', () => {
   const fakeBtn = '<input type="submit" name="login" value="Login">';
 
-  expect(createBtn('submit', 'login', 'Login').outerHTML).toEqual(fakeBtn);
+  it('should return the HTML with the button', () => {
+    expect(createBtn('submit', 'login', 'Login').outerHTML).toEqual(fakeBtn);
+  })
 });

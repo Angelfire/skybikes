@@ -108,6 +108,7 @@ export const BikeStation = () => {
    * @param {*} e 
    */
   const manualBikeReturn = (e) => {
+    console.log(hasBike(session));
     if (hasBike(session)) {
       // Get data attributes from the target (position in array) and update the sations object
       const i = e.target.dataset.station;
