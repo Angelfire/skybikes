@@ -45,6 +45,8 @@
     "babel-polyfill": "^6.26.0"
   },
   "jest": {
-    "transform": { "^.+\\.js?$": "babel-jest" }
+    "transform": {
+      "^.+\\.js?$": "babel-jest"
+    }
   }
 }
