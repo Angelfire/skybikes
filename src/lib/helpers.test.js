@@ -6,8 +6,9 @@ import {
 } from './helpers';
 
 test('sanitize fields', () => {
+  expect(sanitizeField("Andres")).toEqual("Andres");
   expect(sanitizeField("<script>")).toBe("&lt;script&&gt;");
-  expect(sanitizeField("<script>alert('hacking')</script>")).toBe("&lt;script&&gt;alert(&#39;hacking&#39;)&lt;/script&&gt;");
+  expect(sanitizeField("<script>alert('XSS alert dudes')</script>")).toBe("&lt;script&&gt;alert(&#39;XSS alert dudes&#39;)&lt;/script&&gt;");
 });
 
 test('valid emails', () => {
