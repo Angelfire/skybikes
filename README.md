@@ -14,15 +14,19 @@ will simulate and explain the program, albeit on a simplified scale, to all stak
 skybikes/
 ├── public/
 │── src/
+│   ├── bin/
 │   ├── components/
 │   ├── containers/
 │   ├── lib/
+│   ├── tests/
 ```
 
+- `bin` contains Selenium Server Standalone
 - `public` contains fake data for bike stations and users
 - `components` contains components
 - `containers` contains the main views
 - `lib` contain functions helpers
+- `tests` contains the functional tests
 
 ## Model
 `localstorage` and `sessionstorage` provides a powerful strategy for storage info into the client browser, the API it's incredible easy and allow us to have a quickly prototype with data persistence.
@@ -48,7 +52,12 @@ Run the project:
 npm start
 ```
 
-Run the tests:
+Run the unit tests:
 ```
 npm test
+```
+
+Run the functiontal test:
+```
+npm run ftest
 ```
