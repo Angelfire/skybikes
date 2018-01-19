@@ -1,4 +1,3 @@
-const CopyPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
@@ -13,7 +12,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new CopyPlugin([{from: './public/icons/*' }]),
     new HtmlWebpackPlugin({
       template: './src/index.ejs'
     }),

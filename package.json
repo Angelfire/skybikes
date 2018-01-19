@@ -34,8 +34,6 @@
     "file-uploader": "^1.0.0",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.1.2",
-    "jsdom": "^11.5.1",
-    "jsdom-global": "^3.0.2",
     "nightwatch": "^0.9.19",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
