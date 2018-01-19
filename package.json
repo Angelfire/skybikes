@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "test": "jest",
-    "ftest": "nightwatch"
+    "test-e2e": "nightwatch"
   },
   "keywords": [
     "prototype",
@@ -27,6 +27,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
+    "chromedriver": "^2.34.1",
     "clean-webpack-plugin": "^0.1.17",
     "copy-webpack-plugin": "^4.3.1",
     "css-loader": "^0.28.8",
@@ -38,6 +39,7 @@
     "nightwatch": "^0.9.19",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
+    "selenium-server": "^3.8.1",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.10.1",

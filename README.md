@@ -26,7 +26,7 @@ skybikes/
 - `components` contains components
 - `containers` contains the main views
 - `lib` contain functions helpers
-- `tests` contains the functional tests
+- `tests` contains the functional tests (e2e)
 
 ## Model
 `localstorage` and `sessionstorage` provides a powerful strategy for storage info into the client browser, the API it's incredible easy and allow us to have a quickly prototype with data persistence.
@@ -58,6 +58,9 @@ npm test
 ```
 
 Run the functiontal test:
+
+### Prerequisite
+
 ```
-npm run ftest
+npm run test-e2e
 ```
