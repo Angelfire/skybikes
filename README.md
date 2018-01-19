@@ -14,14 +14,12 @@ will simulate and explain the program, albeit on a simplified scale, to all stak
 skybikes/
 ├── public/
 │── src/
-│   ├── bin/
 │   ├── components/
 │   ├── containers/
 │   ├── lib/
 │   ├── tests/
 ```
 
-- `bin` contains Selenium Server Standalone
 - `public` contains fake data for bike stations and users
 - `components` contains components
 - `containers` contains the main views
@@ -58,8 +56,6 @@ npm test
 ```
 
 Run the functiontal test:
-
-### Prerequisite
 
 ```
 npm run test-e2e
